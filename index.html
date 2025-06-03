@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ticketing System - RPA Credit Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Submit a Ticket</h2>
+
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name">
+
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+
+    <label for="ticket">Enter your ticket:</label>
+    <textarea id="ticket" rows="4" cols="50"></textarea>
+
+    <label for="country">Select your country:</label>
+    <select id="country">
+      <option value="">--Select--</option>
+      <option value="IN">India</option>
+      <option value="US">United States</option>
+      <option value="UK">United Kingdom</option>
+    </select>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <br>
+  <button type="button">Refresh</button>
+
+  <div>
+    <p>Ticket Number:</p>
+    <span>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
