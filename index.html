@@ -5,68 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ticketing System - RPA Credit Bank</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f1f1f1;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: center;
+      color: #333;
     }
 
     .container {
-      background-color: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       width: 100%;
       max-width: 600px;
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      color: #0072ff;
     }
 
     label {
       display: block;
-      margin-top: 10px;
-      font-weight: bold;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #333;
     }
 
-    input, select, textarea, button {
+    input, select, textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
+      padding: 12px;
+      margin-top: 8px;
       border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
     }
 
     button {
-      background-color: #007bff;
+      width: 100%;
+      padding: 12px;
+      background-color: #0072ff;
       color: white;
       border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 20px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #0056b3;
+      background-color: #005bd1;
     }
 
     .confirmation-container {
       margin-top: 20px;
       font-weight: bold;
       color: green;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Submit a Ticket</h2>
+
     <label for="name">Name:</label>
     <input type="text" id="name" class="validate" />
 
@@ -81,7 +106,7 @@
 
     <label for="country">Select Country:</label>
     <select id="country">
-      <option value="">Select...</option>
+      <option value="">-- Select Country --</option>
       <option value="India">India</option>
       <option value="USA">USA</option>
       <option value="UK">UK</option>
@@ -89,9 +114,7 @@
 
     <button onclick="submitTicket()">Submit</button>
 
-    <div class="confirmation-container" id="ticketConfirmation">
-      <!-- Ticket ID will appear here -->
-    </div>
+    <div class="confirmation-container" id="ticketConfirmation"></div>
 
     <button onclick="refreshPage()">Refresh</button>
   </div>
