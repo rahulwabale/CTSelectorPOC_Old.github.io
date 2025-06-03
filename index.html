@@ -1,46 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ticketing System - RPA Credit Bank</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .confirmation-container {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-
-  <h2>Submit a Ticket</h2>
-
-  <form>
+  <div class="container">
+    <h2>Submit a Ticket</h2>
     <label for="name">Name:</label>
-    <input type="text" id="name">
+    <input type="text" id="name" class="validate" />
 
     <label for="surname">Surname:</label>
-    <input type="text" id="surname">
+    <input type="text" id="surname" class="validate" />
 
     <label for="email">Email:</label>
-    <input type="email" id="email">
+    <input type="email" id="email" class="validate" />
 
-    <label for="ticket">Enter your ticket:</label>
-    <textarea id="ticket" rows="4" cols="50"></textarea>
+    <label for="ticket">Ticket Details:</label>
+    <textarea id="ticket" rows="4"></textarea>
 
-    <label for="country">Select your country:</label>
+    <label for="country">Select Country:</label>
     <select id="country">
-      <option value="">--Select--</option>
-      <option value="IN">India</option>
-      <option value="US">United States</option>
-      <option value="UK">United Kingdom</option>
+      <option value="">Select...</option>
+      <option value="India">India</option>
+      <option value="USA">USA</option>
+      <option value="UK">UK</option>
     </select>
 
-    <button type="submit">Submit</button>
-  </form>
+    <button onclick="submitTicket()">Submit</button>
 
-  <br>
-  <button type="button">Refresh</button>
+    <div class="confirmation-container" id="ticketConfirmation">
+      <!-- Ticket ID will appear here -->
+    </div>
 
-  <div>
-    <p>Ticket Number:</p>
-    <span>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span>
+    <button onclick="refreshPage()">Refresh</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function submitTicket() {
+      const ticketId = crypto.randomUUID();
+      document.getElementById("ticketConfirmation").innerText = "Ticket ID: " + ticketId;
+    }
+
+    function refreshPage() {
+      window.location.reload();
+    }
+  </script>
 </body>
 </html>
